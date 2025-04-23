@@ -32,19 +32,19 @@ export default function Login() {
         style={styles.LoginImage}
       />
       <View style={styles.subContainer}>
-        <Text style={{fontSize:27,color:Colors.WHITE,
+        <Text style={{fontSize:24,color:Colors.WHITE,
             textAlign:'center'}}>
             Lets Find 
             <Text style={{fontWeight:'bold'}}> Proffessional Cleaning and repair
             </Text> Service
         </Text>
-        <Text style={{fontSize:17,color:Colors.WHITE,
+        <Text style={{fontSize:15,color:Colors.WHITE,
         textAlign:'center',marginTop:20}}>Best App to Find services near you which deliver you a professional services</Text>
 
         <TouchableOpacity style={styles.button} 
         onPress={onPress}>
             <Text style={{textAlign:'center',
-              fontSize:17,
+              fontSize:15,
               color:Colors.PRIMARY}}>Lets Get Started</Text>
         </TouchableOpacity>
       </View>

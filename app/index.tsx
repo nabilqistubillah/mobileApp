@@ -32,7 +32,7 @@ export default function App() {
       {/* Sign In Component */}
       <SignedIn>
         <NavigationContainer>
-          <TabNavigation
+          <TabNavigation/>
         </NavigationContainer>
       </SignedIn>
       {/* SignedOut */}
