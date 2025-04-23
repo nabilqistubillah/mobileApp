@@ -26,30 +26,45 @@ export default function Login() {
         console.error(JSON.stringify(err, null, 2))
       }
     }, [])
-  return (
-    <View style={{alignItems:'center'}}>
-      <Image source={require('./../../../assets/images/login.png')}
-        style={styles.LoginImage}
-      />
-      <View style={styles.subContainer}>
-        <Text style={{fontSize:24,color:Colors.WHITE,
-            textAlign:'center'}}>
-            Lets Find 
-            <Text style={{fontWeight:'bold'}}> Proffessional Cleaning and repair
-            </Text> Service
-        </Text>
-        <Text style={{fontSize:15,color:Colors.WHITE,
-        textAlign:'center',marginTop:20}}>Best App to Find services near you which deliver you a professional services</Text>
-
-        <TouchableOpacity style={styles.button} 
-        onPress={onPress}>
-            <Text style={{textAlign:'center',
-              fontSize:15,
-              color:Colors.PRIMARY}}>Lets Get Started</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  )
+    return (
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <View style={{ alignItems: 'center' }}>
+          <Image
+            source={require('./../../../assets/images/login.png')}
+            style={styles.LoginImage}
+          />
+          <View style={styles.subContainer}>
+            <Text style={{ fontSize: 24, color: Colors.WHITE, textAlign: 'center' }}>
+              Lets Find{' '}
+              <Text style={{ fontWeight: 'bold' }}>
+                Professional Cleaning and Repair
+              </Text>{' '}
+              Service
+            </Text>
+            <Text
+              style={{
+                fontSize: 15,
+                color: Colors.WHITE,
+                textAlign: 'center',
+                marginTop: 20,
+              }}>
+              Best App to Find services near you which deliver you a professional service
+            </Text>
+    
+            <TouchableOpacity style={styles.button} onPress={onPress}>
+              <Text
+                style={{
+                  textAlign: 'center',
+                  fontSize: 15,
+                  color: Colors.PRIMARY,
+                }}>
+                Lets Get Started
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ScrollView>
+    )
 }
 
 const styles = StyleSheet.create({
@@ -75,5 +90,10 @@ const styles = StyleSheet.create({
         backgroundColor:Colors.WHITE,
         borderRadius:99,
         marginTop:40
+    },
+    scrollContainer: {
+      flexGrow: 1,
+      justifyContent: 'center',
+      backgroundColor: '#fff',
     }  
 })
