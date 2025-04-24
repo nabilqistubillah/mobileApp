@@ -7,6 +7,7 @@ import ProfileScreen from '../screens/ProfileScreen/ProfileScreen';
 import { FontAwesome } from '@expo/vector-icons';
 import Colors from '../Utils/Colors';
 
+
 const Tab = createBottomTabNavigator();
 
 export default function TabNavigation() {
