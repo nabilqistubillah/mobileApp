@@ -25,6 +25,9 @@ export default function Header() {
         <View style={styles.searchBarContainer}>
             <TextInput placeholder='search'
             style={styles.textInput}/>
+            <FontAwesome name="search"
+            style={styles.searchbtn}
+            size={24} color={Colors.PRIMARY}/>
         </View>
     </View>
   )
@@ -56,10 +59,20 @@ const styles = StyleSheet.create({
         paddingHorizontal:16,
         backgroundColor:Colors.WHITE,
         borderRadius: 8,
-        width:'85%'
+        width:'85%',
+        fontSize:16
     },
     searchBarContainer:{
-
+        marginTop:15,
+        display:'flex',
+        flexDirection:'row',
+        gap:10,
+        marginBottom:10
+    },
+    searchbtn:{
+        backgroundColor:Colors.WHITE,
+        padding:10,
+        borderRadius:8,
     },
     userImage:{
         width:45,
