@@ -8,8 +8,11 @@ export default function HomeScreen() {
     <View>
       {/* Header */}
       <Header/>
+      <View style={{padding:20}}>
       {/* Slider */}
       <Slider/>
+      </View>
+
     </View>
   )
 }

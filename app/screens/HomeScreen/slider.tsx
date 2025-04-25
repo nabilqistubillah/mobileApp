@@ -1,21 +1,57 @@
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet, Image } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import GlobalAPI from '@/app/Utils/GlobalApi'
+import GlobalAPI from '../../Utils/GlobalAPI'
+import Header from './Header';
+import { FlatList } from 'react-native-gesture-handler';
 
-export default function slider() {
+type SliderItem = {
+    image?: {
+      url?: string;
+    };
+  };
 
-    const [slider,setSlider]=useState();
+export default function Slider() {
+
+    const [slider, setSlider] = useState<SliderItem[]>([]);
     useEffect(()=>{
         getSlider();
     },[])
+
     const getSlider=() => {
         GlobalAPI.getSlider().then(resp=>{
-            console.log("resp",resp);
+            console.log("resp",resp.sliders);
+            setSlider(resp?.sliders)
         })
     }
   return (
     <View>
-      <Text>slider</Text>
+      <Text style={styles.heading}>Offers For Your</Text>
+      <FlatList
+      data={slider}
+      horizontal={true}
+      showsHorizontalScrollIndicator={false}
+      renderItem={({item,index})=>(
+        <View style={{marginRight:20}}>
+           <Image source={{uri:item?.image?.url}}
+           style={styles.sliderImage}
+           />
+        </View>
+      )}
+      />    
     </View>
   )
 }
+
+const styles= StyleSheet.create({
+    heading:{
+        fontSize: 20,
+        fontFamily: 'outfit-medium',
+        marginBottom: 10,
+    },
+    sliderImage:{
+        width:270,
+        height:150,
+        borderRadius:20,
+        objectFit:'contain'
+    }
+})
