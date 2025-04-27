@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import GlobalAPI from '../../Utils/GlobalAPI'
 import Header from './Header';
 import { FlatList } from 'react-native-gesture-handler';
+import Heading from '@/app/Components/Heading';
 
 type SliderItem = {
     image?: {
@@ -17,6 +18,7 @@ export default function Slider() {
         getSlider();
     },[])
 
+    
     const getSlider=() => {
         GlobalAPI.getSlider().then(resp=>{
             console.log("resp",resp.sliders);
@@ -25,7 +27,7 @@ export default function Slider() {
     }
   return (
     <View>
-      <Text style={styles.heading}>Offers For Your</Text>
+      <Heading text={'Offers For You'}/>
       <FlatList
       data={slider}
       horizontal={true}

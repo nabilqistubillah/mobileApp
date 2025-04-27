@@ -38,7 +38,7 @@ export default function Login() {
               Lets Find{' '}
               <Text style={{ fontWeight: 'bold' }}>
                 Professional Cleaning and Repair
-              </Text>{' '}
+              </Text>{''}
               Service
             </Text>
             <Text

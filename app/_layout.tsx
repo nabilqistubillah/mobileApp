@@ -1,35 +1,37 @@
-// app/_layout.tsx
 import { ClerkProvider, SignedIn, SignedOut } from '@clerk/clerk-expo';
-import { Slot } from 'expo-router';
-import * as SecureStore from 'expo-secure-store';
+import { Stack } from "expo-router";
+import { NavigationContainer } from '@react-navigation/native';
+import TabNavigation from './Navigation/TabNavigation';
 import Login from './screens/LoginScreen/Login';
+import { useFonts } from 'expo-font';
+import { View, ActivityIndicator } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-const tokenCache = {
-  async getToken (key: string) {
-    try {
-      return SecureStore.getItemAsync(key);
-    }catch {
-      return null;
-    }
-  },
-  async saveToken (key: string, value: string) {
-    try {
-      return SecureStore.setItemAsync(key, value);
-    }catch {
-      return;
-    }
-  },
-};
+export default function RootLayout() {
+  const [fontsLoaded] = useFonts({
+    'outfit-Regular': require('../assets/fonts/Outfit-Regular.ttf'),
+    'outfit-Medium': require('../assets/fonts/Outfit-Medium.ttf'),
+    'outfit-Bold': require('../assets/fonts/Outfit-Bold.ttf'),
+  });
 
-export default function Layout() {
+  if (!fontsLoaded) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size="large" />
+      </View>
+    );
+  }
+
   return (
-    <ClerkProvider tokenCache={tokenCache} publishableKey='pk_test_Y2l2aWwtY2FsZi01NS5jbGVyay5hY2NvdW50cy5kZXYk'>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+    <ClerkProvider publishableKey="pk_test_Y2l2aWwtY2FsZi01NS5jbGVyay5hY2NvdW50cy5kZXYk">
       <SignedIn>
-        <Slot /> {/* ini akan render semua halaman seperti index.tsx */}
+          <TabNavigation />
       </SignedIn>
       <SignedOut>
         <Login />
       </SignedOut>
     </ClerkProvider>
+    </GestureHandlerRootView>
   );
 }
