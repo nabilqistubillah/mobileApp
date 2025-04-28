@@ -2,7 +2,8 @@ import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity } from 'rea
 import React from 'react'
 import Colors from '@/app/Utils/Colors'
 import * as WebBrowser from "expo-web-browser";
-import { useOAuth } from '@clerk/clerk-expo';
+import { useOAuth } from '@clerk/clerk-expo'; // Adjust the import path based on your setup
+
 import { useWarmUpBrowser } from '../../hooks/warmUpBrowser';
 WebBrowser.maybeCompleteAuthSession();
 
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
     subContainer:{
         width:'100%',
         backgroundColor:Colors.PRIMARY,
-        height:'70%',
+        height:'51%',
         marginTop:-20,
         borderTopLeftRadius:30,
         borderTopRightRadius:30,
